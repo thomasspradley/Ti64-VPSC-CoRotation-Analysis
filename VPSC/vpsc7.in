@@ -8,7 +8,7 @@
 * name and path of texture file (filetext)
 alphaTex.tex  
 * name and path of single crystal file (filecrys)
-IMSP6242.SX
+IMSP6242_isotropic.SX
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)
 shape1.100
 *INFORMATION ABOUT PHASE #2
@@ -18,7 +18,7 @@ shape1.100
 * name and path of texture file (filetext)
 betaTEX.tex
 * name and path of single crystal file (filecrys)
-IMSP6242B.SX
+IMSP6242b.SX
 * name and path of grain shape file (dummy if ishape=0) (fileaxes)
 shape1.100
 *PRECISION SETTINGS FOR CONVERGENCE PROCEDURES (default values)

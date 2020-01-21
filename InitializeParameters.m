@@ -33,7 +33,7 @@ segments = 22;
 % 1387 rotations = 5
 % 2093 rotations = 4
 
-resolution = 10; %degrees
+resolution = 90; %degrees
 
 r = plotS2Grid('resolution',resolution*degree,'upper');
 %r = equispacedS2Grid('resolution', resolution*degree, 'upper');
