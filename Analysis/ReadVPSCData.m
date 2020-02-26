@@ -8,10 +8,12 @@ w = waitbar(0,sprintf('Partitioning VPSC Texture Files: %.0f%%',i/length(r(:))*1
 for i = 1:length(r(:))
 %for i = start_index:end_index
     
-    pname = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i)];
+    pname = [pwd filesep 'Data_' SSS num2str(resolution) '_degrees' filesep 'Rot_' num2str(i)];
     
     partitionVPSCtexture(pname, 1);
     partitionVPSCtexture(pname, 2);
+    
+    disp(i);
     
     %read deformation mode activity 
     %Syntax: slip_act(loading direction, segments, modes)
@@ -19,14 +21,9 @@ for i = 1:length(r(:))
     
     % read deformation mode activity for each strain step, add to matrix
     %[activity_t,a_prism1_t,a_mix2_t,a_prism3_t,a_basal1_t,a_basal3_t,a_pyr_t] = importACT_TiAni(pname,1);
-    [activity,a_prism1_t,a_prism2_t,a_prism3_t,a_basal1_t,a_basal2_t,a_basal3_t,a_pyr_t] = importACT_TiAni(pname,1);
-    a_prism1(:,i) = a_prism1_t;
-    a_prism2(:,i) = a_prism2_t;
-    a_prism3(:,i) = a_prism3_t;
-    a_basal1(:,i) = a_basal1_t;
-    a_basal2(:,i) = a_basal2_t;
-    a_basal3(:,i) = a_basal3_t;
-    %a_mix2(:,i) = a_mix2_t;
+    [activity,a_prism_t,a_basal_t,a_pyr_t] = importACT_TiIso(pname,1);
+    a_prism(:,i) = a_prism_t;
+    a_basal(:,i) = a_basal_t;
     a_pyr(:,i) = a_pyr_t;
     
     [strain,stress(i,:)] = importSTR(pname);
@@ -46,8 +43,8 @@ w = waitbar(0,sprintf('Reading Euler Angles: %.0f%%',i/length(r(:))*100));
 for i = 1:length(r(:))
     for j = 1:segments
 
-        fname_a = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH1_SEG' num2str(j) '.OUT'];
-        fname_b = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH2_SEG' num2str(j) '.OUT'];
+        fname_a = [pwd filesep 'Data_' SSS num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH1_SEG' num2str(j) '.OUT'];
+        fname_b = [pwd filesep 'Data_' SSS num2str(resolution) '_degrees' filesep 'Rot_' num2str(i) filesep 'TEX_PH2_SEG' num2str(j) '.OUT'];
         disp(fname_a);
         disp(fname_b);
 

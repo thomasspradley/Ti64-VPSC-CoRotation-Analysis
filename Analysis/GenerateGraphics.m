@@ -5,7 +5,7 @@ thresh = 20;
 
 %% Create New Directories If Necessary
 
-datapath = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees'];
+datapath = [pwd filesep 'Data_' SSS num2str(resolution) '_degrees'];
 
 if ~exist([datapath filesep 'Graphics'], 'dir')
     mkdir([datapath filesep 'Graphics'])
@@ -440,7 +440,7 @@ close
 
 %% Slip Activity Plots
 
-plotActivityPole_gif;
+ISOplotActivityPole_gif;
 
 %% Binning Plots
 

@@ -5,7 +5,7 @@ w = waitbar(0,sprintf('Calculating Individual Misorientation: %.0f%%',i/length(r
 
 for i = 1:length(r(:))
     for j = 1:segments
-        
+      
         if j == segments
             adiv(i,j) = angle(oria(i,j),ori_a0) * (180/pi);
             bdiv(i,j) = angle(orib(i,j),ori_b0) * (180/pi);

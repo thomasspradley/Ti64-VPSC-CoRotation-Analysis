@@ -52,7 +52,7 @@ close
 
 %% Basal 1
 
-fn = [graphpath filesep 'SlipActivity' filesep];
+fn = [graphpath filesep 'SlipActivity' filesep];ff
 
 figure
 contourf(r,a_basal1(strainStep,:))

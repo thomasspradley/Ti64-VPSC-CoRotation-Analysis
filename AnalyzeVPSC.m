@@ -2,7 +2,7 @@
 
 InitializeParameters;
 
-workspace = [pwd filesep 'Data_7SS' num2str(resolution) '_degrees' filesep 'Data_7SS' num2str(resolution) '_degrees.mat'];
+workspace = [pwd filesep 'Data_' SSS num2str(resolution) '_degrees' filesep 'Data_' SSS num2str(resolution) '_degrees.mat'];
 
 if ~exist(workspace, 'file')
     ReadVPSCData;

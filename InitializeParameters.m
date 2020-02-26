@@ -5,6 +5,9 @@
 addpath(genpath([pwd filesep 'Analysis']));
 addpath(genpath([pwd filesep 'ExternalTools']));
 
+%Slip System Scheme
+SSS = 'Iso';
+
 %% Set Crystal Symmetries for alpha and beta phases
 
 CSa = crystalSymmetry('622', [2.95 2.95 4.68], 'X||a', 'Y||b*', 'Z||c', 'color', 'light blue');
@@ -33,7 +36,7 @@ segments = 22;
 % 1387 rotations = 5
 % 2093 rotations = 4
 
-resolution = 10; %degrees
+resolution = 6; %degrees Basically if u wanna do either iso 10 or 90 file
 
 r = plotS2Grid('resolution',resolution*degree,'upper');
 %r = equispacedS2Grid('resolution', resolution*degree, 'upper');
@@ -44,13 +47,22 @@ rot2 = rotation('map',r,zvector);
 dataSet = length(r(:));
 
 %% Initialize matrices to run faster later
-a_prism1 = zeros(41,dataSet);
-a_prism2 = zeros(41,dataSet);
-a_prism3 = zeros(41,dataSet);
-a_basal1 = zeros(41,dataSet);
-a_basal2 = zeros(41,dataSet);
-a_basal3 = zeros(41,dataSet);
-a_pyr = zeros(41,dataSet);
+if SSS=='Iso'
+    a_prism = zeros(41,dataSet);
+    a_basal = zeros(41,dataSet);
+    a_pyr = zeros(41,dataSet);
+    
+elseif SSS=='7SS'
+    a_prism1 = zeros(41,dataSet);
+    a_prism2 = zeros(41,dataSet);
+    a_prism3 = zeros(41,dataSet);
+    a_basal1 = zeros(41,dataSet);
+    a_basal2 = zeros(41,dataSet);
+    a_basal3 = zeros(41,dataSet);
+    a_pyr = zeros(41,dataSet);
+else
+    fprintf( "input something under a file that exists")
+end 
 %a_mix2 = zeros(41,dataSet);
 
 %% Initialize Color Maps
